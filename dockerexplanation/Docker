@@ -1,0 +1,74 @@
+### Docker 
+
+What is Docker ??
+* Docker: Docker is a platform that allows you to package and run applications in isolated Containers.
+
+What is docker and Why it is used ?
+ * Docker lets you build, test, and deploy applications quickly.
+
+What is docker Containers ?
+* A Docker Container is a lightwheight standlone and executable package that contains everthing needed to run an applications.it include the code,runtime systemtools libraries and dependies .
+
+* Docker has Three Modes 
+   1 . Attached mode  (-a)
+   2 . Detached Mode   (-d)
+   3 . Interactive Mode (-it)
+
+In attached and detached mode when we run container it exicted/dead automatically 
+* attached mode use to rectifie the mistakes what container because it directly connect to the container . 
+* When we run the container in detached mode it run the container in demon set means it run the container in backgroung .
+* When we run the container in -it means interactive mode it directly enter in to the container and it show the container full details if we run the container usint interactive mode it dead/exicted from the container .
+
+* -p means port (when we keep -p we need to mention some port to container
+For example if nginx run's in 80 port then we need to forford the port to 80:8080 it is also called as port forwarding)
+
+* -P using this symble we did not  give any port to contianer it only take settern port and give to the user
+
+### Dteached mode
+`docker container run -d -P --name <NAme> image name`
+`docker container run -d -p <forward the port> --name <NAme> image name`
+
+## detached mode
+`docker container run -it -P --name <NAme> image name`
+`docker container run -it -p <forward the port> --name <NAme> image name`
+
+### atached mode
+`docker container run -P --name <NAme> image name` ### in this -a ifare ifelse we give/not it take automatically
+`docker container run -p <forward the port> --name <NAme> image name`
+
+### to go to running container use
+`docker container exec -it <container name> /bin/bash`
+
+### Docker installation
+
+* Go do dockerscript official page and use :
+`curl -fsSL https://get.docker.com -o install-docker.sh`
+`sudo sh install-docker.sh`
+`sudo usermod =aG docker ubuntu`
+
+* After using above three commands exit from linux machine and login again then see where docker is connect to ubuntu to are not using
+
+`docker version`
+
+* Using above commands docker installation done scussesfully 
+
+
+### Dockerfile to SpringetClinc
+
+"FROM amazoncorretto:11
+Label author="vinod"
+RUN curl -fsSL https://referenceapplicationskhaja.s3.us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar -o spring-petclinic-2.4.2.jar
+EXPOSE 8080
+CMD ("java" "-jar" /spring-petclinic-2.4.2.jar -o spring-petclinic-2.4.2.jar)"
+
+
+
+* To remove docker container use
+  * `docker container rm -f Containername/ID`
+  * `docker container rm -f $(docker container ls -aq)` ## To remove all container use this .
+* To remove docker image use   
+  * `docker image rm -f imagename/ID`
+  * `docker image rm -f $(docker image ls -aq)`
+
+
+
