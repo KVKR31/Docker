@@ -70,5 +70,12 @@ CMD ("java" "-jar" /spring-petclinic-2.4.2.jar -o spring-petclinic-2.4.2.jar)"
   * `docker image rm -f imagename/ID`
   * `docker image rm -f $(docker image ls -aq)`
 
+* To set alias in linux machine For examples :
+  * alias rmi='docker image rm -f '$(docker image ls -a)` ## To delete the IMages 
+  * alias rmc='docker container rm -f '$(docker container ls -a)` ### to delete container
+  
+
+
+
 
 
